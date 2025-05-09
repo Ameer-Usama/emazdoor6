@@ -1,5 +1,6 @@
 package com.example.emazdoor6;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -60,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         
-
+        // Set up category click listeners
+        View seeAllCategory = findViewById(R.id.category_see_all);
+        if (seeAllCategory != null) {
+            seeAllCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Navigate to CategoryActivity
+                    Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }

@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
+        // Enable EdgeToEdge for proper layout rendering
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         
-        // Initialize UI components
-        initializeViews();
+
         
         // Set up click listeners
         setupClickListeners();
@@ -43,34 +43,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         
-        // Handle window insets
+        // Simplified window insets handling
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        
+        // Force layout refresh
+        findViewById(R.id.main).requestLayout();
     }
     
-    private void initializeViews() {
-        // Address bar components
-        addressBarContainer = findViewById(R.id.address_bar_container);
-        ivLocation = findViewById(R.id.iv_location);
-        ivDropdown = findViewById(R.id.iv_dropdown);
-        tvDeliveryAddressLabel = findViewById(R.id.tv_delivery_address_label);
-        tvAddress = findViewById(R.id.tv_address);
-        
 
-    }
     
     private void setupClickListeners() {
         // Address bar click listener
-        addressBarContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Address selection clicked", Toast.LENGTH_SHORT).show();
-                // TODO: Implement address selection functionality
-            }
-        });
+
         
         // Set up category click listeners
         View seeAllCategory = findViewById(R.id.category_see_all);
@@ -84,5 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        
+
+
+        }
     }
-}

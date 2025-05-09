@@ -31,8 +31,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // For demonstration purposes, show a toast message
                 Toast.makeText(LoginActivity.this, "Login button clicked", Toast.LENGTH_SHORT).show();
-                // Navigate to MainActivity
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                // Navigate to MainActivity with proper flags
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish(); // Close LoginActivity to prevent going back
             }
         });
         

@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private CardView addressBarContainer;
-    private ImageView ivLocation, ivDropdown, ivCart;
+    private ImageView ivLocation, ivDropdown;
     private TextView tvDeliveryAddressLabel, tvAddress, tvNotificationBadge;
 
     @Override
@@ -60,13 +60,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         
-        // Shopping cart click listener
-        ivCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Shopping cart clicked", Toast.LENGTH_SHORT).show();
-                // TODO: Implement shopping cart functionality
-            }
-        });
+
     }
 }

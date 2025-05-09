@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         
-
+        // Set up account navigation
 
         }
     }

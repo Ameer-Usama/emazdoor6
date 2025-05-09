@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">EMazdoor6</string>
+    <string name="app_name">Housing</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or">Or</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="app_logo">App Logo</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="address_example">2118 Thornridge California</string>
 </resources>

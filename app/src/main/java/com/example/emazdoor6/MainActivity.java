@@ -1,6 +1,8 @@
 package com.example.emazdoor6;
 
 import android.content.Intent;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         
         // Set up click listeners
         setupClickListeners();
+        
+        // Add navigation to booking activity
+        View acServiceView = findViewById(R.id.offer_ac_service);
+        if (acServiceView != null) {
+            acServiceView.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, BookingActivity.class);
+                startActivity(intent);
+            });
+        }
         
         // Handle window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

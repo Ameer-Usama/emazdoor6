@@ -81,35 +81,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Shopping Cart with Notification Badge -->
-    <FrameLayout
-        android:id="@+id/cart_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar_container">
-
-        <ImageView
-            android:id="@+id/iv_cart"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:contentDescription="Shopping Cart"
-            android:src="@drawable/ic_shopping_cart" />
-
-        <TextView
-            android:id="@+id/tv_notification_badge"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_gravity="end|top"
-            android:background="@drawable/notification_badge"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+    <!-- Cart container removed -->
 
     <!-- Content Container for future components -->
     <androidx.core.widget.NestedScrollView
@@ -120,12 +92,78 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cart_container">
+        app:layout_constraintTop_toBottomOf="@+id/address_bar_container">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp">
+
+            <!-- Search Bar Component -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <!-- Search Icon -->
+                    <ImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Search Icon"
+                        android:src="@drawable/ic_search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Search Input Field -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@null"
+                        android:hint="@string/search_hint"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_search"
+                        app:layout_constraintStart_toEndOf="@+id/iv_search"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Search Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_search"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="8dp"
+                        android:text="@string/search"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Future components will be added here -->
             

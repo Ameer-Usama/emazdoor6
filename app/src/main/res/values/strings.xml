@@ -8,4 +8,6 @@
     <string name="app_logo">App Logo</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="address_example">2118 Thornridge California</string>
+    <string name="search_hint">Search what you need...</string>
+    <string name="search">Search</string>
 </resources>

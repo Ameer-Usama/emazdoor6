@@ -47,9 +47,7 @@ public class MainActivity extends AppCompatActivity {
         tvDeliveryAddressLabel = findViewById(R.id.tv_delivery_address_label);
         tvAddress = findViewById(R.id.tv_address);
         
-        // Shopping cart components
-        ivCart = findViewById(R.id.iv_cart);
-        tvNotificationBadge = findViewById(R.id.tv_notification_badge);
+
     }
     
     private void setupClickListeners() {

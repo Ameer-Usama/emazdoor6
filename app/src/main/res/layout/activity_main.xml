@@ -323,7 +323,7 @@
                                 android:layout_height="match_parent"
                                 android:contentDescription="Home Cleaning"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/placeholder_gray" />
+                                android:src="@drawable/cleaning_slider" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
@@ -354,7 +354,7 @@
                                 android:layout_height="match_parent"
                                 android:contentDescription="Carpet Cleaning"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/placeholder_gray" />
+                                android:src="@drawable/carpet_cleaning" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
@@ -362,6 +362,99 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Carpet Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Furniture Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_furniture_cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Furniture Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/furniture_cleaning" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Furniture Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Refigerator Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_refigerator_cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Refigerator Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/refrigerator_cleaning" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Refigerator Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Mattress Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_mattress_cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Mattress Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/mattress_cleaning" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Mattress Cleaning"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp" />
                     </LinearLayout>

@@ -1,34 +1,78 @@
 package com.example.emazdoor6;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.emazdoor6.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 public class MainActivity extends AppCompatActivity {
 
+    BottomNavigationView bottom_nav;
     private CardView addressBarContainer;
     private ImageView ivLocation, ivDropdown;
     private TextView tvDeliveryAddressLabel, tvAddress, tvNotificationBadge;
 
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Enable EdgeToEdge for proper layout rendering
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set default selected item
+        bottomNavigationView.setSelectedItemId(R.id.home_icon);
+
+        // Handle navigation item clicks
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                // Already in MainActivity
+                return true;
+            } else if (itemId == R.id.booking_icon) {
+                Intent intent = new Intent(MainActivity.this, BookingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.notification_icon) {
+                Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.account_icon) {
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            }
+            return false;
+        });
+
+
+
+
 
         
         // Set up click listeners
@@ -53,8 +97,13 @@ public class MainActivity extends AppCompatActivity {
         // Force layout refresh
         findViewById(R.id.main).requestLayout();
     }
-    
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Ensure the booking_icon is selected when this Activity is resumed
+        bottomNavigationView.setSelectedItemId(R.id.home_icon);
+    }
     
     private void setupClickListeners() {
         // Address bar click listener

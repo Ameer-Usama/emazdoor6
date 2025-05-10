@@ -1,7 +1,9 @@
 package com.example.emazdoor6;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -25,14 +29,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingActivity extends AppCompatActivity {
-
+    BottomNavigationView booking_nav;
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set default selected item
+        bottomNavigationView.setSelectedItemId(R.id.booking_icon);
+
+        // Handle navigation item clicks
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(BookingActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.booking_icon) {
+                // Already in BookingActivity
+                return true;
+            } else if (itemId == R.id.notification_icon) {
+                Intent intent = new Intent(BookingActivity.this, NotificationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.account_icon) {
+                Intent intent = new Intent(BookingActivity.this, AccountActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+
+                return true;
+            }
+            return false;
+        });
+        
+
+
 
         // Initialize views
         tabLayout = findViewById(R.id.tab_layout);
@@ -60,6 +103,12 @@ public class BookingActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Ensure the booking_icon is selected when this Activity is resumed
+        bottomNavigationView.setSelectedItemId(R.id.booking_icon);
     }
 
     // ViewPager adapter for booking tabs

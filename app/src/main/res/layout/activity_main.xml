@@ -3,26 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <!-- Address Bar Container -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/address_bar_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-    </androidx.cardview.widget.CardView>
 
     <!-- Cart container removed -->
 
@@ -31,11 +17,9 @@
         android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar_container">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -109,7 +93,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Future components will be added here -->
-            
+
             <!-- Categories Section -->
             <TextView
                 android:id="@+id/tv_categories_title"
@@ -276,7 +260,7 @@
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-            
+
             <!-- Cleaning Services Section -->
             <TextView
                 android:id="@+id/tv_cleaning_services_title"
@@ -290,7 +274,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/categories_scroll" />
-                
+
             <!-- See All Button -->
             <TextView
                 android:id="@+id/tv_see_all_cleaning"
@@ -303,7 +287,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_cleaning_services_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_cleaning_services_title" />
-                
+
             <!-- Cleaning Services Horizontal Scroll -->
             <HorizontalScrollView
                 android:id="@+id/cleaning_services_scroll"
@@ -383,7 +367,7 @@
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-            
+
             <!-- Special Offers Section -->
             <TextView
                 android:id="@+id/tv_special_offers_title"
@@ -397,7 +381,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cleaning_services_scroll" />
-                
+
             <!-- See All Button for Offers -->
             <TextView
                 android:id="@+id/tv_see_all_offers"
@@ -410,7 +394,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_special_offers_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_special_offers_title" />
-                
+
             <!-- Special Offers Horizontal Scroll -->
             <HorizontalScrollView
                 android:id="@+id/special_offers_scroll"
@@ -418,6 +402,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_special_offers_title">
 
                 <LinearLayout
@@ -433,9 +418,9 @@
                         android:layout_width="280dp"
                         android:layout_height="140dp"
                         android:layout_marginEnd="16dp"
+                        app:cardBackgroundColor="#E8F5E9"
                         app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="#E8F5E9">
+                        app:cardElevation="2dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -482,9 +467,9 @@
                         android:id="@+id/offer_beauty_service"
                         android:layout_width="280dp"
                         android:layout_height="140dp"
+                        app:cardBackgroundColor="#FFF3E0"
                         app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="#FFF3E0">
+                        app:cardElevation="2dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -527,8 +512,19 @@
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
-            
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

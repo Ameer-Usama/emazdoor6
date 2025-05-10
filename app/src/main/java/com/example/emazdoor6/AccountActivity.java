@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class AccountActivity extends AppCompatActivity {
 
     private ImageView btnBack;
@@ -23,11 +25,45 @@ public class AccountActivity extends AppCompatActivity {
     private View helpCenterLayout;
     private View settingLayout;
     private View logoutLayout;
-
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set default selected item
+        bottomNavigationView.setSelectedItemId(R.id.account_icon);
+
+        // Handle navigation item clicks
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(AccountActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.booking_icon) {
+                Intent intent = new Intent(AccountActivity.this, BookingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.notification_icon) {
+                Intent intent = new Intent(AccountActivity.this, NotificationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            } else if (itemId == R.id.account_icon) {
+                // Already in AccountActivity
+                return true;
+            }
+            return false;
+        });
         
         // Initialize UI components
         initializeViews();
@@ -37,6 +73,12 @@ public class AccountActivity extends AppCompatActivity {
         
         // Set click listeners
         setupClickListeners();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Ensure the home_icon is selected when this Activity is resumed
+        bottomNavigationView.setSelectedItemId(R.id.account_icon);
     }
     
     private void initializeViews() {

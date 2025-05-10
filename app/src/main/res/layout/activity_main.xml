@@ -8,15 +8,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Address Bar Container -->
-
-    <!-- Cart container removed -->
-
     <!-- Content Container for future components -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -91,8 +88,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- Future components will be added here -->
 
             <!-- Categories Section -->
             <TextView
@@ -228,17 +223,21 @@
 
                     <!-- See All Category -->
                     <LinearLayout
-                        android:id="@+id/category_see_all"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/category_see_all"
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             app:cardBackgroundColor="#F5F5F5"
                             app:cardCornerRadius="35dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
                             app:cardElevation="0dp">
 
                             <ImageView
@@ -397,9 +396,9 @@
                             android:textSize="14sp" />
                     </LinearLayout>
 
-                    <!-- Refigerator Cleaning Service -->
+                    <!-- Refrigerator Cleaning Service -->
                     <LinearLayout
-                        android:id="@+id/service_refigerator_cleaning"
+                        android:id="@+id/service_refrigerator_cleaning"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -414,7 +413,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:contentDescription="Refigerator Cleaning"
+                                android:contentDescription="Refrigerator Cleaning"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/refrigerator_cleaning" />
                         </androidx.cardview.widget.CardView>
@@ -423,7 +422,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Refigerator Cleaning"
+                            android:text="Refrigerator Cleaning"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -495,7 +494,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:scrollbars="none"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_special_offers_title">
 
                 <LinearLayout
@@ -524,7 +522,7 @@
                                 android:id="@+id/tv_offer_ac_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Offer AC Service"
+                                android:text="AC Service Offer"
                                 android:textColor="#424242"
                                 android:textSize="14sp"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -546,17 +544,17 @@
                                 android:id="@+id/btn_grab_offer_ac"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="@color/white"
                                 android:text="Grab Offer"
                                 android:textAllCaps="false"
-                                android:backgroundTint="@color/white"
-                                android:layout_marginTop="20dp"
                                 android:textColor="#6A9B7E"
-                                app:iconSize="20dp"
-                                app:iconTint="#6A9B7E"
                                 android:textSize="12sp"
                                 app:cornerRadius="20dp"
                                 app:icon="@drawable/ic_see_all"
                                 app:iconGravity="end"
+                                app:iconSize="20dp"
+                                app:iconTint="#6A9B7E"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_offer_ac_discount" />
@@ -568,6 +566,7 @@
                         android:id="@+id/offer_beauty_service"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
                         app:cardBackgroundColor="#FFF3E0"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="2dp">
@@ -581,7 +580,7 @@
                                 android:id="@+id/tv_offer_beauty_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Offer"
+                                android:text="Beauty Service Offer"
                                 android:textColor="#424242"
                                 android:textSize="14sp"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -603,18 +602,17 @@
                                 android:id="@+id/btn_grab_offer_beauty"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="@color/white"
                                 android:text="Grab Offer"
                                 android:textAllCaps="false"
-
-                                android:backgroundTint="@color/white"
-                                android:layout_marginTop="20dp"
                                 android:textColor="#6A9B7E"
-                                app:iconSize="20dp"
-                                app:iconTint="#6A9B7E"
                                 android:textSize="12sp"
                                 app:cornerRadius="20dp"
                                 app:icon="@drawable/ic_see_all"
                                 app:iconGravity="end"
+                                app:iconSize="20dp"
+                                app:iconTint="#6A9B7E"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_offer_beauty_discount" />
@@ -623,19 +621,20 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- Cleaning Services Section -->
+            <!-- AC Services Section -->
             <TextView
                 android:id="@+id/tv_ac_services_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="Cleaning Services"
+                android:text="AC Services"
                 android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/special_offers_scroll" />
+
             <!-- See All Button -->
             <TextView
                 android:id="@+id/tv_see_all_ac"
@@ -649,15 +648,383 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_ac_services_title" />
 
+            <!-- AC Services Horizontal Scroll -->
+            <HorizontalScrollView
+                android:id="@+id/ac_services_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ac_services_title">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
 
+                    <!-- Filter Replacement or Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Filter_Replacement_or_Cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Filter Replacement or Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Filter Replacement or Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Drain Line Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Drain_Line_Cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Drain Line Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Drain Line Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Refrigerant Recharge Service -->
+                    <LinearLayout
+                        android:id="@+id/service_refrigerant_recharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Refrigerant Recharge"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Refrigerant Recharge"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Condenser Coil Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Condenser_Coil_Cleaning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Condenser Coil Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Condenser Coil Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Capacitor Replacement Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Capacitor_Replacement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Capacitor Replacement"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Capacitor Replacement"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tv_ac_beauty_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Beauty Services"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ac_services_scroll" />
+
+            <TextView
+                android:id="@+id/tv_see_all_beauty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="See All"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_ac_beauty_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_ac_beauty_title" />
+
+            <!-- Beauty Services Horizontal Scroll -->
+            <HorizontalScrollView
+                android:id="@+id/beauty_services_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ac_beauty_title">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!-- Filter Replacement or Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Waxing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Filter Replacement or Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Filter Replacement or Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Drain Line Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Manicure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Drain Line Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Drain Line Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Refrigerant Recharge Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Facial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Refrigerant Recharge"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Refrigerant Recharge"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Condenser Coil Cleaning Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Hair_Botox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Condenser Coil Cleaning"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Condenser Coil Cleaning"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Capacitor Replacement Service -->
+                    <LinearLayout
+                        android:id="@+id/service_Brow_Lamination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Capacitor Replacement"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/placeholder_gray" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Capacitor Replacement"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:background="@color/white"

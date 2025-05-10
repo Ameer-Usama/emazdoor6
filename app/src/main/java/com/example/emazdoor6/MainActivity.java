@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         
         // Set up category click listeners
-        View seeAllCategory = findViewById(R.id.category_see_all);
+        CardView seeAllCategory = findViewById(R.id.category_see_all);
         if (seeAllCategory != null) {
             seeAllCategory.setOnClickListener(new View.OnClickListener() {
                 @Override

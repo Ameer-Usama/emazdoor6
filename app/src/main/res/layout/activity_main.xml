@@ -23,91 +23,44 @@
             android:layout_height="wrap_content"
             android:paddingBottom="16dp">
 
-            <!-- Search Bar Component -->
-<!--            <com.google.android.material.card.MaterialCardView-->
-<!--                android:id="@+id/search_bar_container"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                app:cardCornerRadius="8dp"-->
-<!--                app:cardElevation="2dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent">-->
-
-<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="8dp">-->
-
-<!--                    &lt;!&ndash; Search Icon &ndash;&gt;-->
-<!--                    <ImageView-->
-<!--                        android:id="@+id/iv_search"-->
-<!--                        android:layout_width="24dp"-->
-<!--                        android:layout_height="24dp"-->
-<!--                        android:contentDescription="Search Icon"-->
-<!--                        android:src="@drawable/ic_search"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--                    &lt;!&ndash; Search Input Field &ndash;&gt;-->
-<!--                    <com.google.android.material.textfield.TextInputEditText-->
-<!--                        android:id="@+id/et_search"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:background="@null"-->
-<!--                        android:hint="@string/search_hint"-->
-<!--                        android:inputType="text"-->
-<!--                        android:maxLines="1"-->
-<!--                        android:textSize="14sp"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toStartOf="@+id/btn_search"-->
-<!--                        app:layout_constraintStart_toEndOf="@+id/iv_search"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--                    &lt;!&ndash; Search Button &ndash;&gt;-->
-<!--                    <com.google.android.material.button.MaterialButton-->
-<!--                        android:id="@+id/btn_search"-->
-<!--                        style="@style/Widget.MaterialComponents.Button.TextButton"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:minWidth="0dp"-->
-<!--                        android:minHeight="0dp"-->
-<!--                        android:padding="8dp"-->
-<!--                        android:text="@string/search"-->
-<!--                        android:textAllCaps="false"-->
-<!--                        android:textColor="@color/primary"-->
-<!--                        android:textSize="14sp"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
-<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--            </com.google.android.material.card.MaterialCardView>-->
-
-            <androidx.cardview.widget.CardView
-
-
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_margin="16dp"
-                android:id="@+id/search"
+                android:id="@+id/heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/tv_heading"
+                    android:textStyle="bold"
+                    android:textSize="36dp"
+                    android:text="What you are looking for today"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search"
+                app:layout_constraintTop_toBottomOf="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="16dp">
+
                 <LinearLayout
-                    android:padding="5dp"
-                    android:background="@drawable/search_border"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:orientation="horizontal">
+                    android:background="@drawable/search_border"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <EditText
                         android:id="@+id/search_edit_text"
@@ -116,12 +69,12 @@
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:hint="Search what you need..."
+                        android:importantForAutofill="no"
                         android:inputType="text"
                         android:paddingStart="16dp"
                         android:paddingEnd="8dp"
                         android:textColorHint="#8F8F8F"
-                        android:textSize="14sp"
-                        android:importantForAutofill="no" />
+                        android:textSize="14sp" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/search_button"

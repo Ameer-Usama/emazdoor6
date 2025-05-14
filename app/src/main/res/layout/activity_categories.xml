@@ -102,7 +102,7 @@
 
         <!-- AC Repair Category -->
         <LinearLayout
-            android:id="@+id/category_ac_repair"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -111,11 +111,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_ac_repair"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#FFCCB3"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -137,7 +141,7 @@
 
         <!-- Beauty Category -->
         <LinearLayout
-            android:id="@+id/category_beauty"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -146,11 +150,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_beauty"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#D6C9FF"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -172,7 +180,7 @@
 
         <!-- Appliance Category -->
         <LinearLayout
-            android:id="@+id/category_appliance"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -181,11 +189,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_appliance"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#B3E5FC"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -207,7 +219,7 @@
 
         <!-- Painting Category -->
         <LinearLayout
-            android:id="@+id/category_painting"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -216,11 +228,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_painting"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#C8E6C9"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -242,7 +258,7 @@
 
         <!-- Cleaning Category -->
         <LinearLayout
-            android:id="@+id/category_cleaning"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -251,11 +267,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_cleaning"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#FFECB3"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -277,7 +297,7 @@
 
         <!-- Plumbing Category -->
         <LinearLayout
-            android:id="@+id/category_plumbing"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -286,11 +306,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_plumbing"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#DCEDC8"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -312,7 +336,7 @@
 
         <!-- Electronics Category -->
         <LinearLayout
-            android:id="@+id/category_electronics"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -321,11 +345,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_electronics"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#FFCDD2"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -347,7 +375,7 @@
 
         <!-- Shifting Category -->
         <LinearLayout
-            android:id="@+id/category_shifting"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -356,11 +384,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_shifting"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#F8BBD0"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -382,7 +414,7 @@
 
         <!-- Men's Salon Category -->
         <LinearLayout
-            android:id="@+id/category_mens_salon"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -391,11 +423,15 @@
             app:layout_columnWeight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_mens_salon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:cardBackgroundColor="#BBDEFB"
                 app:cardCornerRadius="35dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="32dp"

@@ -1,5 +1,6 @@
 package com.example.emazdoor6;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.Firebase;
 
@@ -40,8 +42,39 @@ public class CategoryActivity extends AppCompatActivity {
         // Initialize search functionality
         setupSearchFunctionality();
         
-        // Set up category click listeners
-        setupCategoryClickListeners();
+
+        // Find all category views
+        CardView acRepair = findViewById(R.id.category_ac_repair);
+        CardView beauty = findViewById(R.id.category_beauty);
+        CardView appliance = findViewById(R.id.category_appliance);
+        CardView painting = findViewById(R.id.category_painting);
+        CardView cleaning = findViewById(R.id.category_cleaning);
+        CardView plumbing = findViewById(R.id.category_plumbing);
+        CardView electronics = findViewById(R.id.category_electronics);
+        CardView shifting = findViewById(R.id.category_shifting);
+        CardView mensSalon = findViewById(R.id.category_mens_salon);
+
+
+        sendingCategory(acRepair,"ac_repair");
+        sendingCategory(beauty,"beauty");
+
+    }
+
+    //Function For Sending Category Information
+    private void sendingCategory(CardView cardView,String tableName){
+
+        if (cardView != null) {
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Navigate to CategoryActivity
+                    Intent intent = new Intent(CategoryActivity.this, Services.class);
+                    intent.putExtra("Category",tableName);
+                    startActivity(intent);
+                }
+            });
+        }
+
     }
     
     private void setupSearchFunctionality() {
@@ -77,69 +110,6 @@ public class CategoryActivity extends AppCompatActivity {
         }
     }
     
-    private void setupCategoryClickListeners() {
-        // Find all category views
-        View acRepair = findViewById(R.id.category_ac_repair);
-        View beauty = findViewById(R.id.category_beauty);
-        View appliance = findViewById(R.id.category_appliance);
-        View painting = findViewById(R.id.category_painting);
-        View cleaning = findViewById(R.id.category_cleaning);
-        View plumbing = findViewById(R.id.category_plumbing);
-        View electronics = findViewById(R.id.category_electronics);
-        View shifting = findViewById(R.id.category_shifting);
-        View mensSalon = findViewById(R.id.category_mens_salon);
-        
-        // Add all views to the list for filtering
-        categoryViews.add(acRepair);
-        categoryViews.add(beauty);
-        categoryViews.add(appliance);
-        categoryViews.add(painting);
-        categoryViews.add(cleaning);
-        categoryViews.add(plumbing);
-        categoryViews.add(electronics);
-        categoryViews.add(shifting);
-        categoryViews.add(mensSalon);
-        
-        // Add category names for search filtering
-        categoryNames.add("ac repair");
-        categoryNames.add("beauty");
-        categoryNames.add("appliance");
-        categoryNames.add("painting");
-        categoryNames.add("cleaning");
-        categoryNames.add("plumbing");
-        categoryNames.add("electronics");
-        categoryNames.add("shifting");
-        categoryNames.add("men's salon");
-        
-        // Set click listeners for each category
-        View.OnClickListener categoryClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the index of the clicked category
-                int index = categoryViews.indexOf(v);
-                String categoryName = categoryNames.get(index);
-                
-                // Show a toast message for now (you can replace with actual navigation)
-                android.widget.Toast.makeText(CategoryActivity.this, 
-                        "Selected category: " + categoryName, 
-                        android.widget.Toast.LENGTH_SHORT).show();
-                
-                // TODO: Navigate to specific service listing for the selected category
-                // Intent intent = new Intent(CategoryActivity.this, ServiceListingActivity.class);
-                // intent.putExtra("CATEGORY_NAME", categoryName);
-                // startActivity(intent);
-            }
-        };
-        
-        // Apply the same click listener to all categories
-        acRepair.setOnClickListener(categoryClickListener);
-        beauty.setOnClickListener(categoryClickListener);
-        appliance.setOnClickListener(categoryClickListener);
-        painting.setOnClickListener(categoryClickListener);
-        cleaning.setOnClickListener(categoryClickListener);
-        plumbing.setOnClickListener(categoryClickListener);
-        electronics.setOnClickListener(categoryClickListener);
-        shifting.setOnClickListener(categoryClickListener);
-        mensSalon.setOnClickListener(categoryClickListener);
-    }
+
+
 }

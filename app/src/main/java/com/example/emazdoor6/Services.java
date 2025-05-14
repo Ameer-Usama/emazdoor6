@@ -1,6 +1,7 @@
 /* Services.java */
 package com.example.emazdoor6;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,11 +24,16 @@ public class Services extends AppCompatActivity {
     private ServiceAdapter serviceAdapter;
     private List<ServiceModel> serviceList;
     private DatabaseReference databaseReference;
+    private String tableName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
+
+        //Intent Data Extraction
+        Intent intent = getIntent();
+        tableName = intent.getStringExtra("Category");
 
         // Initialize RecyclerView
         servicesRecyclerView = findViewById(R.id.servicesRecyclerView);
@@ -35,7 +41,7 @@ public class Services extends AppCompatActivity {
 
         // Initialize Firebase
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("ac_repair");
+        databaseReference = firebaseDatabase.getReference(tableName);
 
         // Initialize service list
         serviceList = new ArrayList<>();

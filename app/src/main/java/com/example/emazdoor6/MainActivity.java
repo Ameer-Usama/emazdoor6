@@ -123,19 +123,33 @@ public class MainActivity extends AppCompatActivity {
         }
         
         // Set up account navigation
-
+        //For ac_repair Category
         CardView acRepairing = findViewById(R.id.category_ac_repair);
+        sendingCategory(acRepairing,"ac_repair");
+        //For category_beauty
+        CardView beauty = findViewById(R.id.category_beauty);
+        sendingCategory(beauty,"beauty");
 
-        if (acRepairing != null) {
-            acRepairing.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Navigate to CategoryActivity
-                    Intent intent = new Intent(MainActivity.this, Services.class);
-                    startActivity(intent);
-                }
-            });
-        }
 
-        }
     }
+        //Function For Sending Category Information
+        private void sendingCategory(CardView cardView,String tableName){
+
+            if (cardView != null) {
+                cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Navigate to CategoryActivity
+                        Intent intent = new Intent(MainActivity.this, Services.class);
+                        intent.putExtra("Category",tableName);
+                        startActivity(intent);
+                    }
+                });
+            }
+
+        }
+
+
+
+
+}

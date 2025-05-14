@@ -8,17 +8,40 @@ public class ServiceModel {
     private int reviews;
     private double price;
 
+    private String description;
+
+    private int userId;
+
     // Empty constructor required for Firebase
     public ServiceModel() {
     }
 
-    public ServiceModel(String id, String title, String imageUrl, double rating, int reviews, double price) {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public ServiceModel(String id, String title, String imageUrl, double rating, int reviews, double price, String description, int userId) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
         this.rating = rating;
         this.reviews = reviews;
         this.price = price;
+        this.userId = userId;
+        this.description = description;
+
     }
 
     public String getId() {

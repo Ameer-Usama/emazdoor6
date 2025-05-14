@@ -41,6 +41,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
                 service.getRating(), service.getReviews()));
         holder.servicePrice.setText(String.format(Locale.getDefault(), "$%.0f", service.getPrice()));
 
+        //Holder For Clicking And Sending Data From Other Activity
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
         // Load image with Glide
         if (service.getImageUrl() != null && !service.getImageUrl().isEmpty()) {
             Glide.with(context)

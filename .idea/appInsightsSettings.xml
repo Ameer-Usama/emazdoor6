@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.emazdoor6" />
+                  <option name="mobileSdkAppId" value="1:1058400651046:android:ffb765fa7af45d9144a3e7" />
+                  <option name="projectId" value="emazdoorapp-f86d0" />
+                  <option name="projectNumber" value="1058400651046" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

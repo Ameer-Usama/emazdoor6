@@ -122,7 +122,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="AC Repair"
-                    android:src="@drawable/ic_ac_repair"
+                    android:src="@drawable/ac_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -157,7 +157,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Beauty"
-                    android:src="@drawable/ic_beauty"
+                    android:src="@drawable/beauty_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -192,7 +192,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Appliance"
-                    android:src="@drawable/ic_appliance"
+                    android:src="@drawable/appliance_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -227,7 +227,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Painting"
-                    android:src="@drawable/ic_painting"
+                    android:src="@drawable/paint_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -262,7 +262,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Cleaning"
-                    android:src="@drawable/ic_cleaning"
+                    android:src="@drawable/cleaning_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -297,7 +297,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Plumbing"
-                    android:src="@drawable/ic_plumbing"
+                    android:src="@drawable/plumbing_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -332,7 +332,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Electronics"
-                    android:src="@drawable/ic_electronics"
+                    android:src="@drawable/electronics_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -367,7 +367,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Shifting"
-                    android:src="@drawable/ic_shifting"
+                    android:src="@drawable/shifting_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 
@@ -402,7 +402,7 @@
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="Men's Salon"
-                    android:src="@drawable/ic_mens_salon"
+                    android:src="@drawable/slaon_icon"
                     app:tint="#000000" />
             </androidx.cardview.widget.CardView>
 

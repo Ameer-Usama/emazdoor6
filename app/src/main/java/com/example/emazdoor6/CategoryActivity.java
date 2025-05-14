@@ -10,10 +10,14 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.Firebase;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
+
+
 
     private EditText searchEditText;
     private List<View> categoryViews = new ArrayList<>();

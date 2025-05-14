@@ -151,7 +151,7 @@
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
                                 android:contentDescription="AC Repair"
-                                android:src="@drawable/ic_ac_repair"
+                                android:src="@drawable/ac_icon"
                                 app:tint="#000000" />
                         </androidx.cardview.widget.CardView>
 
@@ -188,7 +188,7 @@
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
                                 android:contentDescription="Beauty"
-                                android:src="@drawable/ic_beauty"
+                                android:src="@drawable/beauty_icon"
                                 app:tint="#000000" />
                         </androidx.cardview.widget.CardView>
 
@@ -225,7 +225,7 @@
                                 android:layout_height="32dp"
                                 android:layout_gravity="center"
                                 android:contentDescription="Appliance"
-                                android:src="@drawable/ic_appliance"
+                                android:src="@drawable/appliance_icon"
                                 app:tint="#000000" />
                         </androidx.cardview.widget.CardView>
 

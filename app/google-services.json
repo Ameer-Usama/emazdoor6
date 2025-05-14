@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "1058400651046",
+    "project_id": "emazdoorapp-f86d0",
+    "storage_bucket": "emazdoorapp-f86d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058400651046:android:ffb765fa7af45d9144a3e7",
+        "android_client_info": {
+          "package_name": "com.example.emazdoor6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058400651046-k10none4u2q9108cmfjbu4kdtvbpf71n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmAskpqrq-mZ3gW6ruhYnieajTYuCvubk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058400651046-k10none4u2q9108cmfjbu4kdtvbpf71n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058400651046:android:72e7dfa736f4deff44a3e7",
+        "android_client_info": {
+          "package_name": "com.example.emazdoorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058400651046-dfsobfmghjkeq22mh6biegaoq0q8ahqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.emazdoorapp",
+            "certificate_hash": "c5055bf7fcf8eae4847409e3f259de6f1e085fa6"
+          }
+        },
+        {
+          "client_id": "1058400651046-k10none4u2q9108cmfjbu4kdtvbpf71n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmAskpqrq-mZ3gW6ruhYnieajTYuCvubk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058400651046-k10none4u2q9108cmfjbu4kdtvbpf71n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

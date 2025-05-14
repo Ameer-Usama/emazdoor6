@@ -141,7 +141,10 @@
                             android:layout_height="70dp"
                             app:cardBackgroundColor="#FFCCB3"
                             app:cardCornerRadius="35dp"
-                            app:cardElevation="0dp">
+                            app:cardElevation="0dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="32dp"
@@ -175,7 +178,10 @@
                             android:layout_height="70dp"
                             app:cardBackgroundColor="#D6C9FF"
                             app:cardCornerRadius="35dp"
-                            app:cardElevation="0dp">
+                            app:cardElevation="0dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="32dp"
@@ -209,7 +215,10 @@
                             android:layout_height="70dp"
                             app:cardBackgroundColor="#B3E5FC"
                             app:cardCornerRadius="35dp"
-                            app:cardElevation="0dp">
+                            app:cardElevation="0dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="32dp"

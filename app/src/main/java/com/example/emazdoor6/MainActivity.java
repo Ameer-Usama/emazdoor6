@@ -124,5 +124,18 @@ public class MainActivity extends AppCompatActivity {
         
         // Set up account navigation
 
+        CardView acRepairing = findViewById(R.id.category_ac_repair);
+
+        if (acRepairing != null) {
+            acRepairing.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Navigate to CategoryActivity
+                    Intent intent = new Intent(MainActivity.this, Services.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
         }
     }

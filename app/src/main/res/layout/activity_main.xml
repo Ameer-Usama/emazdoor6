@@ -129,7 +129,7 @@
 
                     <!-- AC Repair Category -->
                     <LinearLayout
-                        android:id="@+id/category_ac_repair"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
@@ -137,6 +137,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/category_ac_repair"
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             app:cardBackgroundColor="#FFCCB3"

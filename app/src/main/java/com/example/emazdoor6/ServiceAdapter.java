@@ -1,6 +1,7 @@
 package com.example.emazdoor6;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,14 +42,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
                 service.getRating(), service.getReviews()));
         holder.servicePrice.setText(String.format(Locale.getDefault(), "$%.0f", service.getPrice()));
 
-        //Holder For Clicking And Sending Data From Other Activity
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
         // Load image with Glide
@@ -60,9 +55,19 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
                     .into(holder.serviceImage);
         }
 
+
         // Set click listeners
         holder.itemView.setOnClickListener(v -> {
             // Handle item click
+            Intent intent = new Intent(context, ServiceDetail.class);
+            // Format rating as string with one decimal place before sending
+            intent.putExtra("rating", String.format(Locale.getDefault(), "%.1f", service.getRating()));
+            intent.putExtra("name", service.getTitle());
+            intent.putExtra("description", service.getDescription());
+            // Format price as string with $ symbol before sending
+            intent.putExtra("amount", String.format(Locale.getDefault(), "$%.0f", service.getPrice()));
+            context.startActivity(intent);
+
         });
 
         holder.moreButton.setOnClickListener(v -> {

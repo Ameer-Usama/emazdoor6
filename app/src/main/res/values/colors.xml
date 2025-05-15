@@ -7,4 +7,6 @@
     <color name="text_primary">#333333</color>
     <color name="text_secondary">#757575</color>
     <color name="divider">#E0E0E0</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="purple_500">#673AB7</color>
 </resources>

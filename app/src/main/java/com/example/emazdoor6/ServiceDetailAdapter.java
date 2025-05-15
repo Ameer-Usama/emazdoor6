@@ -100,6 +100,65 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
         return new ViewHolder(view);
     }
 
+    // Variables to track unit and bedroom counts
+    private int unitCount = 1; // Default value is 1
+    private int bedroomCount = 0; // Default value is 0
+    
+    // Method to handle unit increment/decrement
+    private void updateUnitCount(ViewHolder holder, boolean increment) {
+        if (increment) {
+            unitCount++;
+        } else if (unitCount > 1) { // Prevent going below 1
+            unitCount--;
+        }
+        
+        // Update the UI
+        holder.unitCount.setText(String.valueOf(unitCount));
+        
+        // Update button backgrounds
+        updateCounterButtonBackground(holder.decrementUnits, holder.incrementUnits, increment);
+    }
+    
+    // Method to handle bedroom increment/decrement
+    private void updateBedroomCount(ViewHolder holder, boolean increment) {
+        if (increment) {
+            bedroomCount++;
+        } else if (bedroomCount > 0) { // Prevent going below 0
+            bedroomCount--;
+        }
+        
+        // Update the UI
+        holder.bedroomCount.setText(String.valueOf(bedroomCount));
+        
+        // Update button backgrounds
+        updateCounterButtonBackground(holder.decrementBedrooms, holder.incrementBedrooms, increment);
+    }
+    
+    // Helper method to update counter button backgrounds
+    private void updateCounterButtonBackground(View decrementButton, View incrementButton, boolean isIncrement) {
+        androidx.cardview.widget.CardView decrementCard = (androidx.cardview.widget.CardView) decrementButton;
+        androidx.cardview.widget.CardView incrementCard = (androidx.cardview.widget.CardView) incrementButton;
+        
+        // Reset both buttons to default background
+        decrementCard.setCardBackgroundColor(context.getResources().getColor(R.color.light_gray));
+        incrementCard.setCardBackgroundColor(context.getResources().getColor(R.color.light_gray));
+        
+        // Set text color for both buttons
+        TextView decrementText = (TextView) ((ViewGroup) decrementCard).getChildAt(0);
+        TextView incrementText = (TextView) ((ViewGroup) incrementCard).getChildAt(0);
+        decrementText.setTextColor(context.getResources().getColor(android.R.color.black));
+        incrementText.setTextColor(context.getResources().getColor(android.R.color.black));
+        
+        // Highlight the button that was clicked
+        if (isIncrement) {
+            incrementCard.setCardBackgroundColor(context.getResources().getColor(R.color.purple_500));
+            incrementText.setTextColor(context.getResources().getColor(android.R.color.white));
+        } else {
+            decrementCard.setCardBackgroundColor(context.getResources().getColor(R.color.purple_500));
+            decrementText.setTextColor(context.getResources().getColor(android.R.color.white));
+        }
+    }
+    
     @Override
     public void onBindViewHolder(@NonNull ServiceDetailAdapter.ViewHolder holder, int position) {
         holder.serviceTitle.setText(Name);
@@ -123,6 +182,23 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
         
         // Set office as default selected
         selectPropertyType(holder, "office");
+        
+        // Set default values for unit and bedroom counts
+        holder.unitCount.setText(String.valueOf(unitCount));
+        holder.bedroomCount.setText(String.valueOf(bedroomCount));
+        
+        // Set up unit counter buttons
+        holder.decrementUnits.setOnClickListener(v -> updateUnitCount(holder, false));
+        holder.incrementUnits.setOnClickListener(v -> updateUnitCount(holder, true));
+        
+        // Set up bedroom counter buttons
+        holder.decrementBedrooms.setOnClickListener(v -> updateBedroomCount(holder, false));
+        holder.incrementBedrooms.setOnClickListener(v -> updateBedroomCount(holder, true));
+        
+        // Set initial button states
+        ((androidx.cardview.widget.CardView) holder.incrementUnits).setCardBackgroundColor(context.getResources().getColor(R.color.purple_500));
+        TextView incrementUnitsText = (TextView) ((ViewGroup) holder.incrementUnits).getChildAt(0);
+        incrementUnitsText.setTextColor(context.getResources().getColor(android.R.color.white));
     }
 
     @Override
@@ -135,6 +211,8 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
         EditText descriptionEditText;
         ImageButton backButton;
         View homeOption, officeOption, villaOption;
+        TextView unitCount, bedroomCount;
+        View decrementUnits, incrementUnits, decrementBedrooms, incrementBedrooms;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -148,6 +226,16 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
             homeOption = itemView.findViewById(R.id.homeOption);
             officeOption = itemView.findViewById(R.id.officeOption);
             villaOption = itemView.findViewById(R.id.villaOption);
+            
+            // Units counter elements
+            unitCount = itemView.findViewById(R.id.unitCount);
+            decrementUnits = itemView.findViewById(R.id.decrementUnits);
+            incrementUnits = itemView.findViewById(R.id.incrementUnits);
+            
+            // Bedrooms counter elements
+            bedroomCount = itemView.findViewById(R.id.bedroomCount);
+            decrementBedrooms = itemView.findViewById(R.id.decrementBedrooms);
+            incrementBedrooms = itemView.findViewById(R.id.incrementBedrooms);
         }
     }
 }

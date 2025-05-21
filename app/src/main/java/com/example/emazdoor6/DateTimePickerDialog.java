@@ -1,4 +1,4 @@
-package com.example.homeservices;
+package com.example.emazdoor6;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,14 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 
-import com.example.emazdoor6.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
-
-// R کلاس automatically generated ہوتی ہے، لیکن یہاں ہمیں اسے import کرنا پڑے گا کیونکہ پیکیج نام مختلف ہے
 
 public class DateTimePickerDialog extends Dialog {
 
@@ -106,44 +101,40 @@ public class DateTimePickerDialog extends Dialog {
             }
         });
 
-        viewDetailsText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle view details click
-                // This could show additional pricing information
-            }
-        });
+        // Set initial values
+        updateDateDisplay();
+        updateTimeDisplay();
     }
 
     private void showDatePicker() {
+        int year = selectedDate.get(Calendar.YEAR);
+        int month = selectedDate.get(Calendar.MONTH);
+        int day = selectedDate.get(Calendar.DAY_OF_MONTH);
+
         android.app.DatePickerDialog datePickerDialog = new android.app.DatePickerDialog(
                 getContext(),
-                (view, year, month, dayOfMonth) -> {
-                    selectedDate.set(Calendar.YEAR, year);
-                    selectedDate.set(Calendar.MONTH, month);
+                (view, year1, month1, dayOfMonth) -> {
+                    selectedDate.set(Calendar.YEAR, year1);
+                    selectedDate.set(Calendar.MONTH, month1);
                     selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                     updateDateDisplay();
-                },
-                selectedDate.get(Calendar.YEAR),
-                selectedDate.get(Calendar.MONTH),
-                selectedDate.get(Calendar.DAY_OF_MONTH));
+                }, year, month, day);
 
-        // Set minimum date to today
-        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
 
     private void showTimePicker() {
+        int hour = selectedTime.get(Calendar.HOUR_OF_DAY);
+        int minute = selectedTime.get(Calendar.MINUTE);
+
         android.app.TimePickerDialog timePickerDialog = new android.app.TimePickerDialog(
                 getContext(),
-                (view, hourOfDay, minute) -> {
+                (view, hourOfDay, minute1) -> {
                     selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                    selectedTime.set(Calendar.MINUTE, minute);
+                    selectedTime.set(Calendar.MINUTE, minute1);
                     updateTimeDisplay();
-                },
-                selectedTime.get(Calendar.HOUR_OF_DAY),
-                selectedTime.get(Calendar.MINUTE),
-                false);
+                }, hour, minute, false);
+
         timePickerDialog.show();
     }
 

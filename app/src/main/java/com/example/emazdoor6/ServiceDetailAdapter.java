@@ -23,26 +23,19 @@ import java.util.Locale;
 
 
 public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdapter.ViewHolder> {
-    Context context;
+    private Context context;
+    private String rating, name, description, amount;
 
     public ServiceDetailAdapter(Context context, String rating, String name, String description, String amount) {
         this.context = context;
-        Rating = rating;
-        Name = name;
-        Description = description;
-        Amount = amount;
+        this.rating = rating;
+        this.name = name;
+        this.description = description;
+        this.amount = amount;
     }
-
-    String Rating,Name,Description,Amount;
 
     
-    // Method to handle property type selection
-    private void setupPropertyTypeSelection(ViewHolder holder) {
-        // Set click listeners for property type options
-        holder.homeOption.setOnClickListener(v -> selectPropertyType(holder, "home"));
-        holder.officeOption.setOnClickListener(v -> selectPropertyType(holder, "office"));
-        holder.villaOption.setOnClickListener(v -> selectPropertyType(holder, "villa"));
-    }
+    // This method was removed as it's redundant - the listeners are set directly in onBindViewHolder
     
     // Method to update UI based on selected property type
     private void selectPropertyType(ViewHolder holder, String type) {
@@ -123,6 +116,24 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
         
         // Update button backgrounds
         updateCounterButtonBackground(holder.decrementUnits, holder.incrementUnits, increment);
+        
+        // Update the price based on unit count
+        updateTotalPrice(holder);
+    }
+    
+    // Method to update the total price based on unit count
+    private void updateTotalPrice(ViewHolder holder) {
+        // Parse the amount string (removing currency symbol if present)
+        String amountStr = amount.replaceAll("[^\\d.]|^\\.|\\.(?=.*\\.)", "");
+        try {
+            double basePrice = Double.parseDouble(amountStr);
+            double newPrice = basePrice * unitCount;
+            // Update the displayed price
+            holder.totalPrice.setText(amount.replaceAll("[\\d.]+", String.valueOf(newPrice)));
+        } catch (NumberFormatException e) {
+            // If parsing fails, keep the original price
+            holder.totalPrice.setText(amount);
+        }
     }
     
     // Method to handle bedroom increment/decrement
@@ -167,11 +178,11 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
     
     @Override
     public void onBindViewHolder(@NonNull ServiceDetailAdapter.ViewHolder holder, int position) {
-        holder.serviceTitle.setText(Name);
-        holder.totalPrice.setText(Amount);
-        holder.tvRating.setText(Rating);
-        if (holder.descriptionEditText != null && Description != null) {
-            holder.descriptionEditText.setText(Description);
+        holder.serviceTitle.setText(name);
+        holder.totalPrice.setText(amount);
+        holder.tvRating.setText(rating);
+        if (holder.descriptionEditText != null && description != null) {
+            holder.descriptionEditText.setText(description);
         }
         
         // Set back button click listener
@@ -196,7 +207,7 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
                 CardView timeCard = dialogView.findViewById(R.id.timeCard);
 
                 // Set total price from adapter
-                totalPriceValue.setText(Amount);
+                totalPriceValue.setText(amount);
                 // Create AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setView(dialogView);

@@ -125,15 +125,18 @@ public class MainActivity extends AppCompatActivity {
         // Set up account navigation
         //For ac_repair Category
         CardView acRepairing = findViewById(R.id.category_ac_repair);
-        sendingCategory(acRepairing,"ac_repair");
-        //For category_beauty
+        sendingCategory(acRepairing,"ac_repair","AC Repair");
+        //For category_beauty  appliances
         CardView beauty = findViewById(R.id.category_beauty);
-        sendingCategory(beauty,"beauty");
+        sendingCategory(beauty,"beauty","Beauty");
+
+        CardView appliances = findViewById(R.id.appliances);
+        sendingCategory(appliances,"appliance","Appliances");
 
 
     }
         //Function For Sending Category Information
-        private void sendingCategory(CardView cardView,String tableName){
+        private void sendingCategory(CardView cardView,String tableName,String serviceName){
 
             if (cardView != null) {
                 cardView.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         // Navigate to CategoryActivity
                         Intent intent = new Intent(MainActivity.this, Services.class);
+                        intent.putExtra("Service",serviceName);
                         intent.putExtra("Category",tableName);
                         startActivity(intent);
                     }

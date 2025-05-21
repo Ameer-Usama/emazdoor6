@@ -25,6 +25,7 @@
             android:src="@drawable/ic_back" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/searchBar"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -41,7 +42,8 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp">
 
-                <TextView
+                <EditText
+                    android:id="@+id/searchInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -56,11 +58,12 @@
                     app:cardCornerRadius="8dp">
 
                     <ImageView
+                        android:id="@+id/searchIcon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_search"
-                        android:tint="#FFFFFF" />
+                        app:tint="#FFFFFF" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -102,5 +105,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText"
         tools:listitem="@layout/item_service" />
+        
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="10dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/servicesRecyclerView"
+        app:layout_constraintEnd_toEndOf="@id/servicesRecyclerView"
+        app:layout_constraintStart_toStartOf="@id/servicesRecyclerView"
+        app:layout_constraintTop_toTopOf="@id/servicesRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

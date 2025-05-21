@@ -55,13 +55,20 @@ public class CategoryActivity extends AppCompatActivity {
         CardView mensSalon = findViewById(R.id.category_mens_salon);
 
 
-        sendingCategory(acRepair,"ac_repair");
-        sendingCategory(beauty,"beauty");
+        sendingCategory(acRepair,"ac_repair","AC Repair");
+        sendingCategory(beauty,"beauty","Beauty");
+        sendingCategory(appliance,"appliance","Appliance");
+        sendingCategory(painting,"painting","Painting");
+        sendingCategory(cleaning,"cleaning","Cleaning");
+        sendingCategory(plumbing,"plumbing","Plumbing");
+        sendingCategory(electronics,"electronics","Electronics");
+        sendingCategory(shifting,"shifting","Shifting");
+        sendingCategory(mensSalon,"mens_salon","Men's Salon");
 
     }
 
     //Function For Sending Category Information
-    private void sendingCategory(CardView cardView,String tableName){
+    private void sendingCategory(CardView cardView,String tableName,String serviceName){
 
         if (cardView != null) {
             cardView.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +77,7 @@ public class CategoryActivity extends AppCompatActivity {
                     // Navigate to CategoryActivity
                     Intent intent = new Intent(CategoryActivity.this, Services.class);
                     intent.putExtra("Category",tableName);
+                    intent.putExtra("Service",serviceName);
                     startActivity(intent);
                 }
             });

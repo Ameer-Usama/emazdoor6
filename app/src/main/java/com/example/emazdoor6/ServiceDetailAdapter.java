@@ -1,20 +1,25 @@
 package com.example.emazdoor6;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdapter.ViewHolder> {
@@ -29,6 +34,7 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
     }
 
     String Rating,Name,Description,Amount;
+
     
     // Method to handle property type selection
     private void setupPropertyTypeSelection(ViewHolder holder) {
@@ -174,6 +180,102 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
                 ((Activity) context).finish();
             }
         });
+
+        holder.bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                View dialogView = inflater.inflate(R.layout.date_time_picker_dialog, null);
+                // Initialize dialog components
+                ImageButton closeButton = dialogView.findViewById(R.id.closeButton);
+                TextView dateValue = dialogView.findViewById(R.id.dateValue);
+                TextView timeValue = dialogView.findViewById(R.id.timeValue);
+                TextView totalPriceValue = dialogView.findViewById(R.id.totalPriceValue);
+                Button continueButton = dialogView.findViewById(R.id.continueButton);
+                CardView dateCard = dialogView.findViewById(R.id.dateCard);
+                CardView timeCard = dialogView.findViewById(R.id.timeCard);
+
+                // Set total price from adapter
+                totalPriceValue.setText(Amount);
+                // Create AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setView(dialogView);
+                final AlertDialog dialog = builder.create();
+                
+                // Calendar for date and time picking
+                final Calendar calendar = Calendar.getInstance();
+                final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                final SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+                
+                // Set initial values
+                dateValue.setText(dateFormat.format(calendar.getTime()));
+                timeValue.setText(timeFormat.format(calendar.getTime()));
+                
+                // Set click listeners for date and time selection
+                dateCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int year = calendar.get(Calendar.YEAR);
+                        int month = calendar.get(Calendar.MONTH);
+                        int day = calendar.get(Calendar.DAY_OF_MONTH);
+                        
+                        android.app.DatePickerDialog datePickerDialog = new android.app.DatePickerDialog(
+                            context,
+                            new android.app.DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
+                                    calendar.set(Calendar.YEAR, year);
+                                    calendar.set(Calendar.MONTH, month);
+                                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                                    dateValue.setText(dateFormat.format(calendar.getTime()));
+                                }
+                            }, year, month, day);
+                        datePickerDialog.show();
+                    }
+                });
+                
+                timeCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                        int minute = calendar.get(Calendar.MINUTE);
+                        
+                        android.app.TimePickerDialog timePickerDialog = new android.app.TimePickerDialog(
+                            context,
+                            new android.app.TimePickerDialog.OnTimeSetListener() {
+                                @Override
+                                public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+                                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                                    calendar.set(Calendar.MINUTE, minute);
+                                    timeValue.setText(timeFormat.format(calendar.getTime()));
+                                }
+                            }, hour, minute, false);
+                        timePickerDialog.show();
+                    }
+                });
+                
+                // Set click listener for close button
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                
+                // Set click listener for continue button
+                continueButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Handle booking confirmation here
+                        // You can add your booking logic or navigate to the next screen
+                        dialog.dismiss();
+                    }
+                });
+                
+                // Show the dialog
+                dialog.show();
+            }
+        });
         
         // Set property type selection listeners
         holder.homeOption.setOnClickListener(v -> selectPropertyType(holder, "home"));
@@ -214,6 +316,8 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
         TextView unitCount, bedroomCount;
         View decrementUnits, incrementUnits, decrementBedrooms, incrementBedrooms;
 
+        Button bookNowButton;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvRating = itemView.findViewById(R.id.tvRating);
@@ -236,6 +340,8 @@ public class ServiceDetailAdapter extends RecyclerView.Adapter<ServiceDetailAdap
             bedroomCount = itemView.findViewById(R.id.bedroomCount);
             decrementBedrooms = itemView.findViewById(R.id.decrementBedrooms);
             incrementBedrooms = itemView.findViewById(R.id.incrementBedrooms);
+
+            bookNowButton = itemView.findViewById(R.id.bookNowButton);
         }
     }
 }

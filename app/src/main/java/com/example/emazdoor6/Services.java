@@ -60,6 +60,11 @@ public class Services extends AppCompatActivity {
         searchInput = findViewById(R.id.searchInput);
         searchIcon = findViewById(R.id.searchIcon);
         progressBar = findViewById(R.id.progressBar);
+        
+        // Initialize no results view components
+        View noResultsLayout = findViewById(R.id.noResultsLayout);
+        noResultsView = noResultsLayout.findViewById(R.id.noResultsView);
+        searchTermText = noResultsLayout.findViewById(R.id.searchTermText);
 
 
         
@@ -162,7 +167,9 @@ public class Services extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         
         // Hide no results view initially
-        noResultsView.setVisibility(View.GONE);
+        if (noResultsView != null) {
+            noResultsView.setVisibility(View.GONE);
+        }
         servicesRecyclerView.setVisibility(View.VISIBLE);
         
         // Simulate network delay (remove in production)
@@ -189,11 +196,17 @@ public class Services extends AppCompatActivity {
                 // Show empty state if no results found
                 if (filteredList.isEmpty()) {
                     servicesRecyclerView.setVisibility(View.GONE);
-                    noResultsView.setVisibility(View.VISIBLE);
-                    searchTermText.setText(query);
+                    if (noResultsView != null) {
+                        noResultsView.setVisibility(View.VISIBLE);
+                    }
+                    if (searchTermText != null) {
+                        searchTermText.setText(query);
+                    }
                 } else {
                     servicesRecyclerView.setVisibility(View.VISIBLE);
-                    noResultsView.setVisibility(View.GONE);
+                    if (noResultsView != null) {
+                        noResultsView.setVisibility(View.GONE);
+                    }
                 }
             }
         }, 500); // 500ms delay to show progress bar (adjust as needed)

@@ -117,5 +117,16 @@
         app:layout_constraintEnd_toEndOf="@id/servicesRecyclerView"
         app:layout_constraintStart_toStartOf="@id/servicesRecyclerView"
         app:layout_constraintTop_toTopOf="@id/servicesRecyclerView" />
+        
+    <include
+        android:id="@+id/noResultsLayout"
+        layout="@layout/layout_no_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/servicesRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
